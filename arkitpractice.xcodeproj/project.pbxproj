@@ -19,6 +19,8 @@
 		FA31CBF92B7EE91800D1C502 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31CBF82B7EE91800D1C502 /* CustomARView.swift */; };
 		FA31CBFB2B7F099800D1C502 /* CustomARViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31CBFA2B7F099800D1C502 /* CustomARViewRepresentable.swift */; };
 		FA31CBFD2B7F0B6800D1C502 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31CBFC2B7F0B6800D1C502 /* ContentView.swift */; };
+		FA31CBFF2B7FC8F500D1C502 /* ARAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31CBFE2B7FC8F500D1C502 /* ARAction.swift */; };
+		FA31CC012B7FC95600D1C502 /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31CC002B7FC95600D1C502 /* ARManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		FA31CBF82B7EE91800D1C502 /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
 		FA31CBFA2B7F099800D1C502 /* CustomARViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARViewRepresentable.swift; sourceTree = "<group>"; };
 		FA31CBFC2B7F0B6800D1C502 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FA31CBFE2B7FC8F500D1C502 /* ARAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAction.swift; sourceTree = "<group>"; };
+		FA31CC002B7FC95600D1C502 /* ARManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,9 +141,11 @@
 		FA31CBF72B7EE8EA00D1C502 /* Feature Targets */ = {
 			isa = PBXGroup;
 			children = (
+				FA31CBFE2B7FC8F500D1C502 /* ARAction.swift */,
 				FA31CBF82B7EE91800D1C502 /* CustomARView.swift */,
 				FA31CBFA2B7F099800D1C502 /* CustomARViewRepresentable.swift */,
 				FA31CBFC2B7F0B6800D1C502 /* ContentView.swift */,
+				FA31CC002B7FC95600D1C502 /* ARManager.swift */,
 			);
 			path = "Feature Targets";
 			sourceTree = "<group>";
@@ -275,12 +281,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA31CC012B7FC95600D1C502 /* ARManager.swift in Sources */,
 				FA31CBFB2B7F099800D1C502 /* CustomARViewRepresentable.swift in Sources */,
 				FA0494412B7DA03600548ACC /* ViewController.swift in Sources */,
 				FA31CBFD2B7F0B6800D1C502 /* ContentView.swift in Sources */,
 				FA04943D2B7DA03600548ACC /* AppDelegate.swift in Sources */,
 				FA31CBF92B7EE91800D1C502 /* CustomARView.swift in Sources */,
 				FA04943F2B7DA03600548ACC /* SceneDelegate.swift in Sources */,
+				FA31CBFF2B7FC8F500D1C502 /* ARAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

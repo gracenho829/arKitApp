@@ -8,6 +8,7 @@
 import ARKit
 import RealityKit
 import SwiftUI
+import Combine
 
 class CustomARView: ARView{
     required init(frame frameRect:CGRect){
@@ -20,6 +21,7 @@ class CustomARView: ARView{
     
     convenience init(){
         self.init(frame: UIScreen.main.bounds)
+        subscribeToActionStream()
     }
     
     func configurationExample(){
@@ -37,6 +39,17 @@ class CustomARView: ARView{
         let _ = ARBodyTrackingConfiguration()
     }
     
+    private var cancellables: Set<AnyCancellable> = []
+    func subscribeToActionStream(){
+        ARManager.shared.actionStream.sink{[weak self]action in
+            switch action{
+            case .placeBlock(let color):
+                self?.placeBlock(ofColor: color)
+            case .removeAllAnchors:
+                self?.scene.anchors.removeAll()
+            }
+        }.store(in: &cancellables)
+    }
     func anchorExample(){
         let coordinateAnchor = AnchorEntity(world: .zero)
         
@@ -52,10 +65,30 @@ class CustomARView: ARView{
     }
     
     func entityExamples(){
+        //Load an entity from a usdz file
+        let _ = try? Entity.load(named: "usdzFileName")
+        let _ = try? Entity.load(named: "realityFileName")
+        
+        //Generate an entity with code
+        
+        let box = MeshResource.generateBox(size:1)
+        let entity = ModelEntity(mesh: box)
+        
+        //Add entity to an anchor, so it's placed in the scene
+        let anchor = AnchorEntity()
+        anchor.addChild(entity)
         
     }
     
-    func placeBlueBlock(){
+    func placeBlock(ofColor color: Color){
+        let block = MeshResource.generateBox(size: 1)
+        let material = SimpleMaterial(color: UIColor(color), isMetallic: false)
+        let entity = ModelEntity(mesh: block, materials: [material])
+        
+        let anchor = AnchorEntity(plane: .horizontal)
+        anchor.addChild(entity)
+        
+        scene.addAnchor(anchor)
         
     }
 }
